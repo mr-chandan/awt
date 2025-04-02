@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Railway Reservation Form</h1>
+    <form>
+        <label for="name">Passenger Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="train">Train Name/Number:</label>
+        <input type="text" id="train" name="train" required>
+
+        <label for="class">Class:</label>
+        <select id="class" name="class">
+            <option value="sleeper">Sleeper</option>
+            <option value="ac1">AC First Class</option>
+            <option value="ac2">AC Second Class</option>
+            <option value="ac3">AC Third Class</option>
+        </select>
+
+        <label for="date">Date of Journey:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="from">From Station:</label>
+        <input type="text" id="from" name="from" required>
+
+        <label for="to">To Station:</label>
+        <input type="text" id="to" name="to" required>
+
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

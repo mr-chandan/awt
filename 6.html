@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+            width: 350px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Survey Form</h1>
+    <form>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="employment">Employment Status:</label>
+        <select id="employment" name="employment">
+            <option value="employed">Employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+        </select>
+
+        <label>Which services do you use? (Select all that apply):</label>
+        <input type="checkbox" name="services" value="internet"> Internet
+        <input type="checkbox" name="services" value="tv"> TV
+        <input type="checkbox" name="services" value="mobile"> Mobile
+
+        <label for="satisfaction">How satisfied are you with our services?</label>
+        <input type="radio" name="satisfaction" value="very_satisfied"> Very Satisfied
+        <input type="radio" name="satisfaction" value="satisfied"> Satisfied
+        <input type="radio" name="satisfaction" value="neutral"> Neutral
+        <input type="radio" name="satisfaction" value="dissatisfied"> Dissatisfied
+        <input type="radio" name="satisfaction" value="very_dissatisfied"> Very Dissatisfied
+
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" rows="3"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

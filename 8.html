@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Text Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .editor-container {
+            width: 80%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .toolbar button {
+            margin: 5px;
+            padding: 8px;
+            cursor: pointer;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .toolbar button:hover {
+            background: #0056b3;
+        }
+        #editor {
+            width: 100%;
+            height: 200px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Text Editor</h1>
+    <div class="editor-container">
+        <div class="toolbar">
+            <button onclick="document.execCommand('bold')">Bold</button>
+            <button onclick="document.execCommand('italic')">Italic</button>
+            <button onclick="document.execCommand('underline')">Underline</button>
+            <button onclick="document.execCommand('undo')">Undo</button>
+            <button onclick="document.execCommand('redo')">Redo</button>
+            <button onclick="clearText()">Clear</button>
+        </div>
+        <div id="editor" contenteditable="true"></div>
+    </div>
+
+    <script>
+        function clearText() {
+            document.getElementById("editor").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
