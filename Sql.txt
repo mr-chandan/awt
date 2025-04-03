@@ -1,0 +1,69 @@
+-- 1. Create a User (MySQL)
+CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'password123';
+
+-- 2. Grant Permissions (MySQL)
+GRANT ALL PRIVILEGES ON database_name.* TO 'new_user'@'localhost';
+FLUSH PRIVILEGES;
+
+-- 3. Create a Table with a Foreign Key
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    course_id INT,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+-- 4. Create a View
+CREATE VIEW student_courses AS
+SELECT Students.student_id, Students.name, Courses.course_name
+FROM Students
+JOIN Courses ON Students.course_id = Courses.course_id;
+
+-- 5. Delete a View
+DROP VIEW IF EXISTS student_courses;
+
+-- 6. Mathematical Functions
+SELECT name, ABS(age - 40) AS AgeDifference FROM patients;
+SELECT name, RAND() AS RandomNumber FROM patients;
+SELECT name, ROUND(age, -1) AS RoundedAge FROM patients;
+SELECT name, LENGTH(name) AS LengthName FROM patients;
+SELECT name, UPPER(name) AS UpperName FROM patients;
+
+-- 7. Aggregation Functions
+SELECT COUNT(patient_id) AS PatientCount FROM patients;
+SELECT SUM(age) AS TotalAge FROM patients;
+SELECT AVG(age) AS AverageAge FROM patients;
+SELECT MAX(age) AS MaxAge FROM patients;
+SELECT MIN(age) AS MinAge FROM patients;
+
+-- 8. Transaction Control Language (TCL)
+SET AUTOCOMMIT=0;
+BEGIN;
+SAVEPOINT before_insert;
+INSERT INTO account (account_id, account_name, balance) VALUES (102, 'Jane Smith', 2000.00);
+UPDATE account SET account_name= 'NANDINI' WHERE account_id = 102;
+ROLLBACK TO SAVEPOINT before_insert;
+DELETE FROM account WHERE account_name='Jane Smith';
+COMMIT;
+
+-- 9. Locking Tables (Read and Write)
+LOCK TABLES account READ;
+SELECT * FROM account;
+UNLOCK TABLES;
+LOCK TABLES account WRITE;
+UPDATE account SET balance = 2500 WHERE account_id = 2;
+UNLOCK TABLES;
+
+-- 10. Concurrent Transactions
+BEGIN;
+UPDATE accounts SET balance = balance - 100 WHERE account_name = 'John';
+COMMIT;
+BEGIN;
+UPDATE accounts SET balance = balance + 200 WHERE account_name = 'John';
+COMMIT;
+
+-- 11. Set Transaction Isolation Level
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+BEGIN;
+UPDATE accounts SET balance = balance - 100 WHERE account_name = 'John';
+COMMIT;
